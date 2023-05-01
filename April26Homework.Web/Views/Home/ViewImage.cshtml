@@ -1,0 +1,16 @@
+﻿@using April26Homework.Data
+@model ViewImageViewModel
+
+<div class="row">
+    <input type="hidden" id="image-id" value="@Model.Image.Id" />
+    <div class="col-md-10 offset-md-1 bg-light p-4 rounded shadow">
+        <h1>@Model.Image.Title</h1>
+        <img src="/Uploads/@Model.Image.FileName" style="width: 900px;" />
+        <br />
+        <br />
+        <button id="like-button" class="btn btn-primary btn-lg" @(Model.LikedImages.Contains(Model.Image.Id) ? "disabled" : "")>LIKE</button>                 Current Likes: <span id="likes-count">@Model.Image.Likes</span>
+    </div>
+</div>
+@section scripts{
+    <script src="~/js/javascript.js"></script>
+}
